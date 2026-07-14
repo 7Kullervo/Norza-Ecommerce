@@ -46,6 +46,7 @@
 
                 <!-- Main Product Image -->
                 <img class="img-fluid w-100 pb-3 product-image"
+                    id="MainImg"
                      src="images/Clothes/Off_White_Baggy_Pants_for_women.png"
                      alt="Product Image">
 
@@ -350,6 +351,27 @@ Whether you're aiming for a minimalist aesthetic or a bold street-style look, th
     <script>
         lucide.createIcons();
     </script>
+
+ <script>
+    var MainImg = document.getElementById("MainImg");
+    var smallimg = document.getElementsByClassName("small-img");
+
+    smallimg[0].onclick = function () {
+        MainImg.src = smallimg[0].src;
+    }
+
+    smallimg[1].onclick = function () {
+        MainImg.src = smallimg[1].src;
+    }
+
+    smallimg[2].onclick = function () {
+        MainImg.src = smallimg[2].src;
+    }
+
+    smallimg[3].onclick = function () {
+        MainImg.src = smallimg[3].src;
+    }
+</script>
 
 </body>
 </html>
