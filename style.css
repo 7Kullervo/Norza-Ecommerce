@@ -43,7 +43,7 @@ h5 {
 p {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     font-weight: bold;
-    color: black
+    color: black;
 }
 
 button{
@@ -455,7 +455,7 @@ footer a:hover{
     opacity: 0.9;
 }
 
-#blog-container .post:hover h5
+#blog-container .post:hover h5,
 #blog-container .post:hover p,
 #blog-container .post:hover .btn {
     color: #8B5CF6;
@@ -524,3 +524,37 @@ footer a:hover{
 #cart-container .table thread {
     font-weight: bold;
 }
+
+/* Cart Table */
+#cart-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#cart-container table thead {
+    background-color: #6A11CB;
+    color: white;
+}
+
+#cart-container table th {
+    padding: 15px;
+    text-align: left;
+}
+
+#cart-container table td {
+    padding: 15px;
+    background-color: #ffffff;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+}
+
+#cart-container table tr:hover td {
+    background-color: #f5f0ff;
+}
+
+#cart-container .table td img {
+    width: 80px;
+    height: auto;
+    border-radius: 5px;
+}
+

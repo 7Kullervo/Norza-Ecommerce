@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
+    <title>Your Cart</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
 <link rel="stylesheet" href="style.css">
@@ -48,7 +48,7 @@
           <li class="nav-item">
             <a class="nav-link" href="#"></a>
            <i data-lucide="search"></i> 
-           <i data-lucide="shopping-bag"></i>  
+           <i data-lucide="shopping-cart"></i>
           </a>
           </li>
            
@@ -63,7 +63,48 @@
    
 </section>
 
+<!-- Cart Heading -->
+<section id="cart-container" class="container my-5">
+    <h2 class="font-weight-bold pt-5">Your Cart</h2>
+    <hr>
 
+    <table class="table cart-table mt-4">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Remove</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td><img src="images/Clothes/Nurse_Uniform.png" alt="Nurse Uniform" class="img-fluid" style="max-width: 100px;"></td>
+                <td>Nurse Uniform</td>
+                <td>20$</td>
+                <td>1</td>
+                <td><button class="btn "></button><i data-lucide="trash-2"></i> </button></td>
+            </tr>
+             <tr>
+                <td><img src="images/Clothes/Black_leather_Pants_for_men.png" alt="Nurse Uniform" class="img-fluid" style="max-width: 100px;"></td>
+                <td>Leather Pants for Men</td>
+                <td>80$</td>
+                <td>1</td>
+                <td><button class="btn "></button><i data-lucide="trash-2"></i> </button></td>
+            </tr>
+             <tr>
+                <td><img src="images/Clothes/Blue_Silk_Designer_Shalwar_Kameez.png"Nurse Uniform" class="img-fluid" style="max-width: 100px;"></td>
+                <td>Blue and peach silk designer shalwar kameez</td>
+                <td>90$</td>
+                <td>5</td>
+                <td><button class="btn "></button><i data-lucide="trash-2"></i> </button></td>
+            </tr>
+        </tbody>
+    </table>
+</section>
 
 <footer class="mt-5 py-5">
     <div class="container">
