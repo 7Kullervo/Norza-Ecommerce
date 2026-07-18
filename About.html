@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Cart</title>
+    <title>About</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
+<link rel="stylesheet" href="about.css">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation -->
+
+
+        <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary py-3 fixed-top">
 
   <div class="container">
@@ -48,7 +51,7 @@
           <li class="nav-item">
             <a class="nav-link" href="#"></a>
            <i data-lucide="search"></i> 
-           <i data-lucide="shopping-cart"></i>
+           <i data-lucide="shopping-cart"></i>  
           </a>
           </li>
            
@@ -56,182 +59,238 @@
   </div>
 </nav>
 
-<section id="Blog" class="py-5 mt-5 container">
 
-   
+
+<!-- ABOUT HERO -->
+
+<section id="about-home">
+    <div class="container">
+        <h5>ABOUT NORZA</h5>
+        <h1>Everything You Need,<br>All In One Place</h1>
+
+        <p>
+            Norza connects quality products, trusted brands,
+            and exceptional shopping experiences into one marketplace.
+        </p>
+    </div>
 </section>
 
-<!-- Cart Heading -->
-<div class="table-responsive">
-    <h2 class="cart-heading">Your Cart</h2>
-    <hr class="cart-line">
-    <table class="table cart-table mt-4">
+<!-- ABOUT CONTENT -->
 
-        <thead>
-            <tr>
-                <th>Product</th>
-                <th>Description</th>
-                <th class="d-none d-md-table-cell">Price</th>
-                <th>Quantity</th>
-                <th class="d-none d-md-table-cell">Remove</th>
-                <th>Total</th>
-            </tr>
-        </thead>
+<section id="about-container" class="container py-5">
+    <div class="row align-items-center">
 
-        <tbody>
+        <div class="col-lg-6 col-md-6 col-12">
+            <img src="images/About/Norza_About_Minisection.png"
+                 class="img-fluid rounded"
+                 alt="About Norza">
+        </div>
 
-            <!-- Product 1 -->
-            <tr>
-                <td>
-                    <img src="images/Clothes/Nurse_Uniform.png"
-                         alt="Nurse Uniform"
-                         class="cart-img">
-                </td>
+        <div class="col-lg-6 col-md-6 col-12 mt-4 mt-lg-0">
 
-                <td class="product-name">
-                    Nurse Uniform
-                </td>
+            <h6>OUR STORY</h6>
 
-                <td class="d-none d-md-table-cell">
-                    $20
-                </td>
+            <h2>Built Around Convenience & Quality</h2>
 
-                <td>
-                    <div class="quantity-control">
-                        <input type="number"
-                               value="1"
-                               min="1"
-                               class="qty-input">
-                    </div>
-                </td>
+            <p>
+                Norza was created to bring together fashion,
+                electronics, groceries, watches, footwear and
+                everyday essentials under one trusted platform.
+            </p>
 
-                <td class="d-none d-md-table-cell">
-                    <i class="far fa-trash-alt"></i>
-                </td>
+            <p>
+                Our mission is simple: help customers discover
+                quality products while enjoying a smooth,
+                secure and enjoyable shopping experience.
+            </p>
 
-                <td>$20</td>
-            </tr>
+            <p>
+                We believe online shopping should be fast,
+                transparent and accessible to everyone.
+            </p>
 
-            <!-- Product 2 -->
-            <tr>
-                <td>
-                    <img src="images/Clothes/Black_leather_Pants_for_men.png"
-                         alt="Leather Pants"
-                         class="cart-img">
-                </td>
+        </div>
 
-                <td class="product-name">
-                    Leather Pants for Men
-                </td>
+    </div>
+</section>
 
-                <td class="d-none d-md-table-cell">
-                    $80
-                </td>
+<!-- MISSION & VISION -->
 
-                <td>
-                    <div class="quantity-control">
-                        <input type="number"
-                               value="1"
-                               min="1"
-                               class="qty-input">
-                    </div>
-                </td>
+<section id="mission-vision">
 
-                <td class="d-none d-md-table-cell">
-                    <i class="far fa-trash-alt"></i>
-                </td>
+    <div class="container">
 
-                <td>$80</td>
-            </tr>
+        <div class="row">
 
-            <!-- Product 3 -->
-            <tr>
-                <td>
-                    <img src="images/Clothes/Red_Off_White_Shalwar_Kameez.png"
-                         alt="Shalwar Kameez"
-                         class="cart-img">
-                </td>
+            <div class="col-lg-6 mb-4">
 
-                <td class="product-name">
-                    Blue and Peach Silk Designer Shalwar Kameez
-                </td>
+                <div class="mv-box">
 
-                <td class="d-none d-md-table-cell">
-                    $90
-                </td>
+                    <h3>Our Mission</h3>
 
-                <td>
-                    <div class="quantity-control">
-                        <input type="number"
-                               value="5"
-                               min="1"
-                               class="qty-input">
-                    </div>
-                </td>
+                    <p>
+                        To provide customers with premium
+                        products at competitive prices while
+                        delivering outstanding service and
+                        customer satisfaction.
+                    </p>
 
-                <td class="d-none d-md-table-cell">
-                    <i class="far fa-trash-alt"></i>
-                </td>
+                </div>
 
-                <td>$90</td>
-            </tr>
-
-        </tbody>
-
-    </table>
-</div>
-<!-- Coupon Section -->
-<section id="cart-bottom" class="container">
-   <div class="row mt-5">
-
-    <!-- Coupon -->
-    <div class="col-lg-6 col-md-12 mb-4">
-        <div class="card shadow-sm p-4 cart-card">
-            <h5>Have a Coupon?</h5>
-
-            <div class="input-group mt-3">
-                <input type="text"
-                       class="form-control"
-                       placeholder="Enter coupon code">
-
-                <button class="btn btn-primary">
-                    Apply
-                </button>
             </div>
-        </div>
-    </div>
 
-    <!-- Cart Total -->
-    <div class="col-lg-6 col-md-12 mb-4">
-        <div class="card shadow-sm p-4 cart-card">
+            <div class="col-lg-6 mb-4">
 
-            <h5>Cart Total</h5>
+                <div class="mv-box">
 
-            <table class="table mt-3">
-                <tr>
-                    <td>Subtotal</td>
-                    <td class="text-end">$190.00</td>
-                </tr>
+                    <h3>Our Vision</h3>
 
-                <tr>
-                    <td>Shipping</td>
-                    <td class="text-end">$10.00</td>
-                </tr>
+                    <p>
+                        To become a globally trusted
+                        marketplace where shopping is simple,
+                        secure and enjoyable for everyone.
+                    </p>
 
-                <tr class="fw-bold">
-                    <td>Total</td>
-                    <td class="text-end">$200.00</td>
-                </tr>
-            </table>
+                </div>
 
-            <button class="btn btn-primary w-100">
-                Proceed to Checkout
-            </button>
+            </div>
 
         </div>
+
     </div>
 
-</div>
+</section>
+
+<!-- WHY CHOOSE NORZA -->
+
+<section id="why-norza" class="container py-5">
+
+    <div class="text-center">
+
+        <h6>WHY CHOOSE US</h6>
+
+        <h2>Why Shop With Norza?</h2>
+
+        <hr class="mx-auto">
+
+    </div>
+
+    <div class="row mt-5">
+
+        <div class="col-lg-4 col-md-6 col-12 mb-4">
+
+            <div class="feature-box text-center">
+
+                <h4>Premium Quality</h4>
+
+                <p>
+                    Carefully selected products from trusted
+                    brands and verified suppliers.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12 mb-4">
+
+            <div class="feature-box text-center">
+
+                <h4>Fast Delivery</h4>
+
+                <p>
+                    Reliable shipping and efficient order
+                    processing from checkout to delivery.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12 mb-4">
+
+            <div class="feature-box text-center">
+
+                <h4>Best Prices</h4>
+
+                <p>
+                    Competitive pricing without compromising
+                    on quality or customer experience.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- STATS -->
+
+<section id="stats">
+
+    <div class="container">
+
+        <div class="row text-center">
+
+            <div class="col-lg-3 col-md-6 col-6 mb-4">
+
+                <h2>500+</h2>
+
+                <p>Products</p>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-6 mb-4">
+
+                <h2>50+</h2>
+
+                <p>Brands</p>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-6 mb-4">
+
+                <h2>10K+</h2>
+
+                <p>Customers</p>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-6 mb-4">
+
+                <h2>99%</h2>
+
+                <p>Satisfaction</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CALL TO ACTION -->
+
+<section id="about-cta" class="py-5">
+
+    <div class="container text-center">
+
+        <h2>Experience Norza Today</h2>
+
+        <p>
+            Explore thousands of products and discover
+            a better way to shop online.
+        </p>
+
+        <a href="shop.html" class="buy-btn">
+            Shop Now
+        </a>
+
+    </div>
+
 </section>
 
 <footer class="mt-5 py-5">

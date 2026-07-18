@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ABOUT HERO */
+
+#about-home{
+    background-image:
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    url("images/Background_image_Norza.png");
+
+    width:100%;
+    min-height:70vh;
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    align-items:center;
+
+    color:white;
+}
+
+#about-home h5{
+    color:#6f42c1;;
+    font-weight:600;
+    letter-spacing:2px;
+}
+
+#about-home h1{
+    font-size:3rem;
+    font-weight:700;
+}
+
+#about-home p{
+    max-width:600px;
+    font-size:1.1rem;
+}
+
+/* ABOUT */
+
+#about-container h6{
+    color:#6f42c1;;
+    font-weight:700;
+}
+
+#about-container h2{
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+#about-container p{
+    color:#555;
+    line-height:1.8;
+}
+
+/* MISSION */
+
+#mission-vision{
+    background:#f8f8f8;
+    padding:80px 0;
+}
+
+.mv-box{
+    background:white;
+    padding:40px;
+    text-align:center;
+    height:100%;
+    transition:.3s;
+}
+
+.mv-box:hover{
+    transform:translateY(-5px);
+}
+
+.mv-box h3{
+    font-weight:700;
+}
+
+/* STATS */
+
+#stats{
+    padding:80px 0;
+}
+
+#stats h2{
+    font-size:3rem;
+    font-weight:700;
+    color:#6f42c1;;
+}
+
+#stats p{
+    font-size:1.1rem;
+}
+
+/* ABOUT CTA BUTTON */
+
+#about-cta .buy-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:14px 35px;
+
+    background:#6f42c1;   /* Purple */
+    color:#fff;
+
+    font-size:16px;
+    font-weight:600;
+    text-decoration:none;
+
+    border:none;
+    border-radius:30px;
+
+    transition:all 0.3s ease;
+}
+
+#about-cta .buy-btn:hover{
+    background:#5a32a3;
+    color:#fff;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 8px 20px rgba(111,66,193,0.3);
+}
+
+#about-cta .buy-btn:active{
+    transform:translateY(0);
+}
+
+.footer-logo {
+    width: 140px;
+    height: auto;
+}
+
+footer {
+    background-color: black;
+}
+
+footer h5{
+    color: #FFFFFF;
+}
+
+footer p,
+footer a{
+    color: #D1D5DB;
+}
+
+footer a:hover{
+    color: #8B5CF6;
+}
+
+.payment-icons{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.payment-icons img{
+    width: 55px;
+    height: auto;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.payment-icons img:hover{
+    transform: scale(1.08);
+}
+
+.social-icons{
+    display: flex;
+    gap: 12px;
+}
+
+.social-icons img{
+    width: 28px;
+    height: 28px;
+    transition: 0.3s ease;
+}
+
+.social-icons img:hover{
+    transform: translateY(-3px);
+}

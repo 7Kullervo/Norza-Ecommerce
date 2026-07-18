@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Cart</title>
+    <title>Contact Us</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
+<link rel="stylesheet" href="contact_us.css">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation -->
+
+
+        <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary py-3 fixed-top">
 
   <div class="container">
@@ -48,7 +51,7 @@
           <li class="nav-item">
             <a class="nav-link" href="#"></a>
            <i data-lucide="search"></i> 
-           <i data-lucide="shopping-cart"></i>
+           <i data-lucide="shopping-cart"></i>  
           </a>
           </li>
            
@@ -56,184 +59,140 @@
   </div>
 </nav>
 
-<section id="Blog" class="py-5 mt-5 container">
 
-   
+
+<!-- CONTACT HEADER -->
+
+<section class="container pt-5 mt-5">
+    <div class="text-center py-5">
+
+        <h5>CONTACT US</h5>
+
+        <h1 class="font-weight-bold">
+            We'd Love To Hear From You
+        </h1>
+
+        <hr class="mx-auto">
+
+        <p>
+            Have questions, feedback, or need assistance?
+            Our team is ready to help.
+        </p>
+
+    </div>
 </section>
 
-<!-- Cart Heading -->
-<div class="table-responsive">
-    <h2 class="cart-heading">Your Cart</h2>
-    <hr class="cart-line">
-    <table class="table cart-table mt-4">
+<!-- CONTACT SECTION -->
 
-        <thead>
-            <tr>
-                <th>Product</th>
-                <th>Description</th>
-                <th class="d-none d-md-table-cell">Price</th>
-                <th>Quantity</th>
-                <th class="d-none d-md-table-cell">Remove</th>
-                <th>Total</th>
-            </tr>
-        </thead>
+<section id="contact-container" class="container pb-5">
 
-        <tbody>
+    <div class="row g-4">
 
-            <!-- Product 1 -->
-            <tr>
-                <td>
-                    <img src="images/Clothes/Nurse_Uniform.png"
-                         alt="Nurse Uniform"
-                         class="cart-img">
-                </td>
+        <!-- Contact Form -->
 
-                <td class="product-name">
-                    Nurse Uniform
-                </td>
+        <div class="col-lg-7">
 
-                <td class="d-none d-md-table-cell">
-                    $20
-                </td>
+            <div class="contact-card">
 
-                <td>
-                    <div class="quantity-control">
-                        <input type="number"
-                               value="1"
-                               min="1"
-                               class="qty-input">
+                <h3 class="mb-4">Send Us A Message</h3>
+
+                <form>
+
+                    <div class="mb-3">
+                        <input type="text"
+                               class="form-control"
+                               placeholder="Your Name"
+                               required>
                     </div>
-                </td>
 
-                <td class="d-none d-md-table-cell">
-                    <i class="far fa-trash-alt"></i>
-                </td>
-
-                <td>$20</td>
-            </tr>
-
-            <!-- Product 2 -->
-            <tr>
-                <td>
-                    <img src="images/Clothes/Black_leather_Pants_for_men.png"
-                         alt="Leather Pants"
-                         class="cart-img">
-                </td>
-
-                <td class="product-name">
-                    Leather Pants for Men
-                </td>
-
-                <td class="d-none d-md-table-cell">
-                    $80
-                </td>
-
-                <td>
-                    <div class="quantity-control">
-                        <input type="number"
-                               value="1"
-                               min="1"
-                               class="qty-input">
+                    <div class="mb-3">
+                        <input type="email"
+                               class="form-control"
+                               placeholder="Your Email"
+                               required>
                     </div>
-                </td>
 
-                <td class="d-none d-md-table-cell">
-                    <i class="far fa-trash-alt"></i>
-                </td>
-
-                <td>$80</td>
-            </tr>
-
-            <!-- Product 3 -->
-            <tr>
-                <td>
-                    <img src="images/Clothes/Red_Off_White_Shalwar_Kameez.png"
-                         alt="Shalwar Kameez"
-                         class="cart-img">
-                </td>
-
-                <td class="product-name">
-                    Blue and Peach Silk Designer Shalwar Kameez
-                </td>
-
-                <td class="d-none d-md-table-cell">
-                    $90
-                </td>
-
-                <td>
-                    <div class="quantity-control">
-                        <input type="number"
-                               value="5"
-                               min="1"
-                               class="qty-input">
+                    <div class="mb-3">
+                        <input type="text"
+                               class="form-control"
+                               placeholder="Subject">
                     </div>
-                </td>
 
-                <td class="d-none d-md-table-cell">
-                    <i class="far fa-trash-alt"></i>
-                </td>
+                    <div class="mb-3">
+                        <textarea class="form-control"
+                                  rows="6"
+                                  placeholder="Your Message"
+                                  required></textarea>
+                    </div>
 
-                <td>$90</td>
-            </tr>
+                    <button type="submit" class="contact-btn">
+                        Send Message
+                    </button>
 
-        </tbody>
+                </form>
 
-    </table>
-</div>
-<!-- Coupon Section -->
-<section id="cart-bottom" class="container">
-   <div class="row mt-5">
-
-    <!-- Coupon -->
-    <div class="col-lg-6 col-md-12 mb-4">
-        <div class="card shadow-sm p-4 cart-card">
-            <h5>Have a Coupon?</h5>
-
-            <div class="input-group mt-3">
-                <input type="text"
-                       class="form-control"
-                       placeholder="Enter coupon code">
-
-                <button class="btn btn-primary">
-                    Apply
-                </button>
             </div>
-        </div>
-    </div>
-
-    <!-- Cart Total -->
-    <div class="col-lg-6 col-md-12 mb-4">
-        <div class="card shadow-sm p-4 cart-card">
-
-            <h5>Cart Total</h5>
-
-            <table class="table mt-3">
-                <tr>
-                    <td>Subtotal</td>
-                    <td class="text-end">$190.00</td>
-                </tr>
-
-                <tr>
-                    <td>Shipping</td>
-                    <td class="text-end">$10.00</td>
-                </tr>
-
-                <tr class="fw-bold">
-                    <td>Total</td>
-                    <td class="text-end">$200.00</td>
-                </tr>
-            </table>
-
-            <button class="btn btn-primary w-100">
-                Proceed to Checkout
-            </button>
 
         </div>
+
+        <!-- Contact Info -->
+
+        <div class="col-lg-5">
+
+            <div class="contact-card">
+
+                <h3 class="mb-4">Contact Information</h3>
+
+                <p>
+                    <strong>Email</strong><br>
+                    support@norza.com
+                </p>
+
+                <p>
+                    <strong>Phone</strong><br>
+                    +92 300 1234567
+                </p>
+
+                <p>
+                    <strong>Address</strong><br>
+                    Islamabad, Pakistan
+                </p>
+
+                <p>
+                    <strong>Working Hours</strong><br>
+                    Monday - Saturday<br>
+                    9:00 AM - 8:00 PM
+                </p>
+
+            </div>
+
+        </div>
+
     </div>
 
-</div>
 </section>
 
+<!-- MAP -->
+
+<section class="container pb-5">
+
+    <div class="contact-card">
+
+        <h3 class="text-center mb-4">
+            Find Us
+        </h3>
+
+        <iframe
+            src="https://maps.google.com/maps?q=Islamabad&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="400"
+            style="border:0;border-radius:15px;"
+            loading="lazy">
+        </iframe>
+
+    </div>
+
+</section>
 <footer class="mt-5 py-5">
     <div class="container">
         <div class="row pt-5">

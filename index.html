@@ -45,7 +45,25 @@
             Contact Us
           </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item search-container">
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search products..."
+        autocomplete="off">
+
+    <i data-lucide="search"></i>
+
+    <div id="searchResults"></div>
+
+</li>
+
+<li class="nav-item">
+    <a class="nav-link" href="cart.html">
+        <i data-lucide="shopping-cart"></i>
+    </a>
+</li>
             <a class="nav-link" href="#"></a>
            <i data-lucide="search"></i> 
            <i data-lucide="shopping-cart"></i>  
@@ -732,6 +750,8 @@
     <script>
         lucide.createIcons();
     </script>
+
+    
 
 </body>
 </html>
