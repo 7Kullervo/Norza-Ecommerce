@@ -16,42 +16,45 @@
     <img src="images/Norza logo no background2.png" alt="Norza logo">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="menu-icon d-flex justify-content-center align-items-center">
-    <i id = "bar" data-lucide="menu"></i>
-</span>
+        <i id="bar" data-lucide="menu"></i>
+      </span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+
+        <li class="nav-item search-container">
+          <input type="text" id="searchInput" placeholder="Search products...">
+          <i data-lucide="search" class="search-icon"></i>
+          <div id="searchResults" class="search-results"></div>
         </li>
-        
+
         <li class="nav-item">
-          <a class="nav-link" href="Shop.html">
-            Shop
+          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="Shop.html">Shop</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="blog.html">Blog</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="About.html">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="Contact_us.html">Contact Us</a>
+        </li>
+
+        <li class="nav-item nav-icons">
+          <a class="nav-link" href="cart.html">
+            <i data-lucide="shopping-cart"></i>
           </a>
         </li>
-          <li class="nav-item">
-          <a class="nav-link" href="#">
-            Blog
-          </a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link" href="#">
-            About
-          </a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link" href="#">
-            Contact Us
-          </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"></a>
-           <i data-lucide="search"></i> 
-           <i data-lucide="shopping-bag"></i>  
-          </a>
-          </li>
-           
+
+      </ul>
     </div>
   </div>
 </nav>
@@ -295,6 +298,37 @@
     <script>
         lucide.createIcons();
     </script>
+
+    <!-- Norza Chatbot -->
+<div class="chatbot-container">
+    <button id="chatbotToggle" class="chatbot-btn">
+        💬
+    </button>
+
+    <div id="chatbotWindow" class="chatbot-window">
+        <div class="chatbot-header">
+            <span>Norza Assistant</span>
+            <button id="closeChat">✖</button>
+        </div>
+
+        <div id="chatMessages" class="chat-messages">
+            <div class="bot-message">
+                Hello! Welcome to Norza. How can I help you today?
+            </div>
+        </div>
+
+        <div class="chat-input-area">
+            <input
+                type="text"
+                id="userInput"
+                placeholder="Type your message..."
+            >
+            <button id="sendBtn">Send</button>
+        </div>
+    </div>
+</div>
+
+<script src="chatbot.js"></script>
 
 </body>
 </html>
