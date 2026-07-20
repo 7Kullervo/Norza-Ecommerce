@@ -51,6 +51,10 @@
           <a class="nav-link" href="Contact_us.html">Contact Us</a>
         </li>
 
+        <li class="nav-item" id="accountNavItem">
+          <a class="nav-link" href="login.html">Login</a>
+        </li>
+
         <li class="nav-item nav-icons">
           <a class="nav-link" href="cart.html">
             <i data-lucide="shopping-cart"></i>
@@ -99,10 +103,11 @@
 
                 <h3 class="mb-4">Send Us A Message</h3>
 
-                <form>
+                <form id="contactForm">
 
                     <div class="mb-3">
                         <input type="text"
+                               id="contactName"
                                class="form-control"
                                placeholder="Your Name"
                                required>
@@ -110,6 +115,7 @@
 
                     <div class="mb-3">
                         <input type="email"
+                               id="contactEmail"
                                class="form-control"
                                placeholder="Your Email"
                                required>
@@ -117,18 +123,22 @@
 
                     <div class="mb-3">
                         <input type="text"
+                               id="contactSubject"
                                class="form-control"
                                placeholder="Subject">
                     </div>
 
                     <div class="mb-3">
-                        <textarea class="form-control"
+                        <textarea id="contactMessage"
+                                  class="form-control"
                                   rows="6"
                                   placeholder="Your Message"
                                   required></textarea>
                     </div>
 
-                    <button type="submit" class="contact-btn">
+                    <div id="contactStatus" class="alert" style="display:none;"></div>
+
+                    <button type="submit" class="contact-btn" id="contactSubmitBtn">
                         Send Message
                     </button>
 
@@ -327,6 +337,10 @@
 </div>
 
 <script src="chatbot.js"></script>
+
+<!-- Norza backend integration -->
+<script src="api.js"></script>
+<script src="contact.js"></script>
 
 </body>
 </html>

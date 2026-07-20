@@ -48,6 +48,10 @@
           <a class="nav-link" href="Contact_us.html">Contact Us</a>
         </li>
 
+        <li class="nav-item" id="accountNavItem">
+          <a class="nav-link" href="login.html">Login</a>
+        </li>
+
         <li class="nav-item nav-icons">
           <a class="nav-link" href="cart.html">
             <i data-lucide="shopping-cart"></i>
@@ -68,7 +72,10 @@
 <div class="table-responsive">
     <h2 class="cart-heading">Your Cart</h2>
     <hr class="cart-line">
-    <table class="table cart-table mt-4">
+
+    <p id="emptyCartMsg" class="text-center" style="display:none;"></p>
+
+    <table class="table cart-table mt-4" id="cartTableWrapper">
 
         <thead>
             <tr>
@@ -81,113 +88,17 @@
             </tr>
         </thead>
 
-        <tbody>
-
-            <!-- Product 1 -->
-            <tr>
-                <td>
-                    <img src="images/Clothes/Nurse_Uniform.png"
-                         alt="Nurse Uniform"
-                         class="cart-img">
-                </td>
-
-                <td class="product-name">
-                    Nurse Uniform
-                </td>
-
-                <td class="d-none d-md-table-cell">
-                    $20
-                </td>
-
-                <td>
-                    <div class="quantity-control">
-                        <input type="number"
-                               value="1"
-                               min="1"
-                               class="qty-input">
-                    </div>
-                </td>
-
-                <td class="d-none d-md-table-cell">
-                    <i class="far fa-trash-alt"></i>
-                </td>
-
-                <td>$20</td>
-            </tr>
-
-            <!-- Product 2 -->
-            <tr>
-                <td>
-                    <img src="images/Clothes/Black_leather_Pants_for_men.png"
-                         alt="Leather Pants"
-                         class="cart-img">
-                </td>
-
-                <td class="product-name">
-                    Leather Pants for Men
-                </td>
-
-                <td class="d-none d-md-table-cell">
-                    $80
-                </td>
-
-                <td>
-                    <div class="quantity-control">
-                        <input type="number"
-                               value="1"
-                               min="1"
-                               class="qty-input">
-                    </div>
-                </td>
-
-                <td class="d-none d-md-table-cell">
-                    <i class="far fa-trash-alt"></i>
-                </td>
-
-                <td>$80</td>
-            </tr>
-
-            <!-- Product 3 -->
-            <tr>
-                <td>
-                    <img src="images/Clothes/Red_Off_White_Shalwar_Kameez.png"
-                         alt="Shalwar Kameez"
-                         class="cart-img">
-                </td>
-
-                <td class="product-name">
-                    Blue and Peach Silk Designer Shalwar Kameez
-                </td>
-
-                <td class="d-none d-md-table-cell">
-                    $90
-                </td>
-
-                <td>
-                    <div class="quantity-control">
-                        <input type="number"
-                               value="5"
-                               min="1"
-                               class="qty-input">
-                    </div>
-                </td>
-
-                <td class="d-none d-md-table-cell">
-                    <i class="far fa-trash-alt"></i>
-                </td>
-
-                <td>$90</td>
-            </tr>
-
+        <tbody id="cartBody">
+            <tr><td colspan="6" class="text-center">Loading cart...</td></tr>
         </tbody>
 
     </table>
 </div>
-<!-- Coupon Section -->
+<!-- Cart Total -->
 <section id="cart-bottom" class="container">
-   <div class="row mt-5">
+   <div class="row mt-5" id="cartBottom">
 
-    <!-- Coupon -->
+    <!-- Coupon (not yet wired to backend) -->
     <div class="col-lg-6 col-md-12 mb-4">
         <div class="card shadow-sm p-4 cart-card">
             <h5>Have a Coupon?</h5>
@@ -197,7 +108,7 @@
                        class="form-control"
                        placeholder="Enter coupon code">
 
-                <button class="btn btn-primary">
+                <button class="btn btn-primary" disabled title="Coming soon">
                     Apply
                 </button>
             </div>
@@ -213,21 +124,26 @@
             <table class="table mt-3">
                 <tr>
                     <td>Subtotal</td>
-                    <td class="text-end">$190.00</td>
+                    <td class="text-end" id="subtotalCell">$0.00</td>
                 </tr>
 
                 <tr>
                     <td>Shipping</td>
-                    <td class="text-end">$10.00</td>
+                    <td class="text-end" id="shippingCell">$0.00</td>
+                </tr>
+
+                <tr>
+                    <td>Tax</td>
+                    <td class="text-end" id="taxCell">$0.00</td>
                 </tr>
 
                 <tr class="fw-bold">
                     <td>Total</td>
-                    <td class="text-end">$200.00</td>
+                    <td class="text-end" id="totalCell">$0.00</td>
                 </tr>
             </table>
 
-            <button class="btn btn-primary w-100">
+            <button class="btn btn-primary w-100" id="checkoutBtn">
                 Proceed to Checkout
             </button>
 
@@ -236,6 +152,50 @@
 
 </div>
 </section>
+
+<!-- Shipping Address Modal -->
+<div class="modal fade" id="shippingModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form id="shippingForm">
+        <div class="modal-header">
+          <h5 class="modal-title">Shipping Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="shipFullName" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Address</label>
+            <input type="text" class="form-control" id="shipLine1" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">City</label>
+            <input type="text" class="form-control" id="shipCity" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Postal Code</label>
+            <input type="text" class="form-control" id="shipPostal" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Country</label>
+            <input type="text" class="form-control" id="shipCountry" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Phone (optional)</label>
+            <input type="text" class="form-control" id="shipPhone">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="placeOrderBtn">Place Order &amp; Pay</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 <footer class="mt-5 py-5">
     <div class="container">
@@ -368,6 +328,10 @@
 </div>
 
 <script src="chatbot.js"></script>
+
+<!-- Norza backend integration -->
+<script src="api.js"></script>
+<script src="cart.js"></script>
 
 </body>
 </html>

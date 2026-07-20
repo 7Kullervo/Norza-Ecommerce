@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Login | Norza</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #0f0f0f;
+    color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    border-bottom: 1px solid #262626;
+  }
+  header a { color: #f5f5f5; text-decoration: none; margin-left: 24px; font-size: 14px; }
+  header a:hover { color: #d4a72c; }
+  .logo { font-size: 22px; font-weight: 700; letter-spacing: 1px; }
+  main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 16px;
+  }
+  .card {
+    background: #191919;
+    border: 1px solid #262626;
+    border-radius: 10px;
+    padding: 36px 32px;
+    width: 100%;
+    max-width: 380px;
+  }
+  .card h1 { font-size: 22px; margin: 0 0 6px; }
+  .card p.sub { color: #999; font-size: 14px; margin: 0 0 24px; }
+  label { display: block; font-size: 13px; color: #ccc; margin-bottom: 6px; margin-top: 16px; }
+  input {
+    width: 100%;
+    padding: 11px 12px;
+    background: #0f0f0f;
+    border: 1px solid #333;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 14px;
+  }
+  input:focus { outline: none; border-color: #d4a72c; }
+  button.submit {
+    width: 100%;
+    margin-top: 24px;
+    padding: 12px;
+    background: #d4a72c;
+    border: none;
+    border-radius: 6px;
+    color: #0f0f0f;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  button.submit:hover { background: #e0b53f; }
+  button.submit:disabled { opacity: 0.6; cursor: not-allowed; }
+  .error {
+    background: #3a1414;
+    border: 1px solid #6b1f1f;
+    color: #ff9a9a;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    margin-top: 16px;
+    display: none;
+  }
+  .switch { text-align: center; margin-top: 20px; font-size: 13px; color: #999; }
+  .switch a { color: #d4a72c; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">NORZA</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Shop.html">Shop</a>
+    <a href="cart.html">Cart</a>
+  </nav>
+</header>
+
+<main>
+  <div class="card">
+    <h1>Welcome back</h1>
+    <p class="sub">Log in to your Norza account</p>
+
+    <form id="loginForm">
+      <label for="email">Email</label>
+      <input type="email" id="email" required autocomplete="email" />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" required autocomplete="current-password" />
+
+      <div class="error" id="errorBox"></div>
+
+      <button type="submit" class="submit" id="submitBtn">Log In</button>
+    </form>
+
+    <div class="switch">
+      Don't have an account? <a href="register.html">Create one</a>
+    </div>
+  </div>
+</main>
+
+<script src="api.js"></script>
+<script>
+  const form = document.getElementById("loginForm");
+  const errorBox = document.getElementById("errorBox");
+  const submitBtn = document.getElementById("submitBtn");
+
+  // If already logged in, skip straight to the shop.
+  if (NorzaAuth.isLoggedIn()) {
+    window.location.href = "Shop.html";
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    errorBox.style.display = "none";
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Logging in...";
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+
+    try {
+      const data = await norzaApiFetch("/auth/login", {
+        method: "POST",
+        body: JSON.stringify({ email, password }),
+      });
+
+      NorzaAuth.saveSession(data.token, data.user);
+
+      // Redirect back to wherever the user came from, or the shop by default.
+      const params = new URLSearchParams(window.location.search);
+      window.location.href = params.get("redirect") || "Shop.html";
+    } catch (err) {
+      errorBox.textContent = err.message;
+      errorBox.style.display = "block";
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Log In";
+    }
+  });
+</script>
+
+</body>
+</html>
