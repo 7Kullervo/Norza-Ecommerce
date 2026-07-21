@@ -6,7 +6,7 @@
 // and switches to your deployed backend once the site is live on GitHub Pages.
 // After you deploy (see README), replace the placeholder URL below with your
 // real Render/Railway URL — e.g. "https://norza-backend.onrender.com/api".
-const DEPLOYED_API_BASE = "https://REPLACE-WITH-YOUR-DEPLOYED-URL.onrender.com/api";
+const DEPLOYED_API_BASE = "norza-ecommerce.vercel.app"; // <-- REPLACE THIS WITH YOUR REAL DEPLOYED BACKEND URL
 const LOCAL_API_BASE = "http://localhost:5000/api";
 
 const API_BASE =
