@@ -9,6 +9,31 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
+    .main-img-wrapper {
+        position: relative;
+    }
+    .img-nav-arrow {
+        position: absolute;
+        top: 45%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.35);
+        border: none;
+        color: #fff;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    .img-nav-arrow:hover {
+        background: rgba(0, 0, 0, 0.6);
+    }
+    .img-nav-left { left: 10px; }
+    .img-nav-right { right: 10px; }
+
     .small-img-group {
         display: flex;
         justify-content: space-between;
@@ -123,10 +148,19 @@
             <!-- Left Column -->
             <div class="col-lg-5 col-md-12 col-12">
 
-                <img class="img-fluid w-100 pb-3 product-image"
-                    id="MainImg"
-                     src=""
-                     alt="Product Image">
+                <div class="main-img-wrapper" id="mainImgWrapper">
+                    <img class="img-fluid w-100 pb-3 product-image"
+                        id="MainImg"
+                         src=""
+                         alt="Product Image">
+
+                    <button type="button" class="img-nav-arrow img-nav-left" id="prevImgBtn" style="display:none;" aria-label="Previous image">
+                        <i data-lucide="chevron-left"></i>
+                    </button>
+                    <button type="button" class="img-nav-arrow img-nav-right" id="nextImgBtn" style="display:none;" aria-label="Next image">
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </div>
 
                 <div class="small-img-group" id="thumbnailGroup"></div>
 

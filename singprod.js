@@ -66,26 +66,48 @@ function renderProduct(p) {
     addBtn.textContent = "Out of Stock";
   }
 
-  // Thumbnails: use the extra images array if present, otherwise just the main image.
-  const thumbs = (p.images && p.images.length ? p.images : [p.image]).slice(0, 4);
+  // --- Image gallery: only show thumbnails/arrows when there's more than one image ---
+  const images = (p.images && p.images.length ? p.images : [p.image]).slice(0, 4);
+  let currentIndex = 0;
+
+  const mainImg = document.getElementById("MainImg");
   const thumbGroup = document.getElementById("thumbnailGroup");
-  thumbGroup.innerHTML = thumbs
-    .map(
-      (img, i) => `
-      <div class="small-img-col">
-        <img class="small-img img-fluid ${i === 0 ? "active-thumb" : ""}" src="${encodeURI(img)}" alt="${p.name}">
-      </div>`
-    )
-    .join("");
+  const prevBtn = document.getElementById("prevImgBtn");
+  const nextBtn = document.getElementById("nextImgBtn");
 
-  thumbGroup.querySelectorAll(".small-img").forEach((thumb) => {
-    thumb.addEventListener("click", () => {
-      document.getElementById("MainImg").src = thumb.src;
-      thumbGroup.querySelectorAll(".small-img").forEach((t) => t.classList.remove("active-thumb"));
-      thumb.classList.add("active-thumb");
+  function showImage(index) {
+    currentIndex = (index + images.length) % images.length;
+    mainImg.src = encodeURI(images[currentIndex]);
+    thumbGroup.querySelectorAll(".small-img").forEach((t, i) => {
+      t.classList.toggle("active-thumb", i === currentIndex);
     });
-  });
+  }
 
+  if (images.length > 1) {
+    thumbGroup.style.display = "flex";
+    thumbGroup.innerHTML = images
+      .map((img, i) => `
+        <div class="small-img-col">
+          <img class="small-img img-fluid" src="${encodeURI(img)}" alt="${p.name}">
+        </div>`)
+      .join("");
+
+    thumbGroup.querySelectorAll(".small-img").forEach((thumb, i) => {
+      thumb.addEventListener("click", () => showImage(i));
+    });
+
+    prevBtn.style.display = "flex";
+    nextBtn.style.display = "flex";
+    prevBtn.onclick = () => showImage(currentIndex - 1);
+    nextBtn.onclick = () => showImage(currentIndex + 1);
+  } else {
+    thumbGroup.style.display = "none";
+    thumbGroup.innerHTML = "";
+    prevBtn.style.display = "none";
+    nextBtn.style.display = "none";
+  }
+
+  showImage(0);
   if (window.lucide) lucide.createIcons();
 
   addBtn.addEventListener("click", async () => {
