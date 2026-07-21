@@ -42,7 +42,7 @@ async function loadCart() {
           </div>
         </td>
         <td class="d-none d-md-table-cell">
-          <i class="far fa-trash-alt remove-item" data-product-id="${item.product}" style="cursor:pointer;"></i>
+          <i data-lucide="trash-2" class="remove-item" data-product-id="${item.product}" style="cursor:pointer;"></i>
         </td>
         <td class="line-total">$${(item.price * item.quantity).toFixed(2)}</td>
       </tr>
@@ -51,6 +51,7 @@ async function loadCart() {
       .join("");
 
     updateTotals(data.cart.subtotal);
+    if (window.lucide) lucide.createIcons();
     attachRowEvents();
   } catch (err) {
     cartTable.style.display = "none";

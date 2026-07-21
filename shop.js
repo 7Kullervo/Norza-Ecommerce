@@ -90,32 +90,8 @@ function renderPagination(pages) {
 
 function attachBuyButtons() {
   document.querySelectorAll(".buy-btn").forEach((btn) => {
-    btn.addEventListener("click", async () => {
-      if (!NorzaAuth.isLoggedIn()) {
-        window.location.href = "login.html?redirect=Shop.html";
-        return;
-      }
-
-      const productId = btn.dataset.id;
-      const originalText = btn.textContent;
-      btn.disabled = true;
-      btn.textContent = "Adding...";
-
-      try {
-        await norzaApiFetch("/cart/items", {
-          method: "POST",
-          body: JSON.stringify({ productId, quantity: 1 }),
-        });
-        btn.textContent = "Added ✓";
-        setTimeout(() => {
-          btn.textContent = originalText;
-          btn.disabled = false;
-        }, 1200);
-      } catch (err) {
-        alert(err.message);
-        btn.textContent = originalText;
-        btn.disabled = false;
-      }
+    btn.addEventListener("click", () => {
+      window.location.href = `singprod.html?id=${btn.dataset.id}`;
     });
   });
 }
@@ -198,6 +174,14 @@ function setupAccountLink() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const keywordFromUrl = params.get("keyword");
+  if (keywordFromUrl) {
+    currentKeyword = keywordFromUrl;
+    const input = document.getElementById("searchInput");
+    if (input) input.value = keywordFromUrl;
+  }
+
   setupAccountLink();
   setupSearch();
   loadProducts();

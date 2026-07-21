@@ -830,3 +830,23 @@ footer a:hover{
     padding:0 20px;
     cursor:pointer;
 }
+
+/* Purple buttons instead of Bootstrap's default blue */
+.btn-primary {
+    background-color: #6f42c1 !important;
+    border-color: #6f42c1 !important;
+}
+
+.btn-primary:hover {
+    background-color: #5a34a0 !important;
+    border-color: #5a34a0 !important;
+}
+
+/* "Go shopping" link on the empty cart page isn't a button, so style it separately */
+#emptyCartMsg a {
+    color: #6f42c1;
+}
+
+#emptyCartMsg a:hover {
+    color: #5a34a0;
+}
