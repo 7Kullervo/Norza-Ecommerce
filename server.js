@@ -67,8 +67,15 @@ app.use(notFound);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Norza backend running on port ${PORT} [${process.env.NODE_ENV || "development"}]`);
-});
+
+// Vercel imports this file as a serverless function and calls the exported
+// app directly — it never runs this file with `node server.js`. Only start
+// a normal listening server when this file IS run directly (local dev, or
+// a traditional host like Render/Railway that runs `npm start`).
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Norza backend running on port ${PORT} [${process.env.NODE_ENV || "development"}]`);
+  });
+}
 
 module.exports = app;
