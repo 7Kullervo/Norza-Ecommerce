@@ -19,9 +19,28 @@ const reviewRoutes = require("./routes/reviewRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const contactRoutes = require("./routes/contactRoutes");
 
-connectDB();
+// Kick off the connection immediately, but never let a failure crash the
+// whole process — just log it. Individual requests are protected below.
+connectDB().catch((err) => {
+  console.error("Initial MongoDB connection attempt failed:", err.message);
+});
 
 const app = express();
+
+// Ensures every request waits for a ready DB connection before continuing.
+// Critical for serverless: a "cold start" request could otherwise reach a
+// route handler before Mongoose has finished connecting.
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    res.status(503).json({
+      success: false,
+      message: "Database temporarily unavailable, please try again.",
+    });
+  }
+});
 
 app.use(helmet());
 app.use(
