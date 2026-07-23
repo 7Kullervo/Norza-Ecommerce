@@ -43,11 +43,17 @@ app.use(async (req, res, next) => {
 });
 
 app.use(helmet());
+const cors = require("cors");
+
 app.use(
-  cors({
-    origin: process.env.CLIENT_URL || "*",
-    credentials: true,
-  })
+    cors({
+        origin: [
+            "http://localhost:3000",
+            "https://norza-ecommerce-se838l2o8-7kullervo1.vercel.app",
+            "https://norza-ecommerce.vercel.app"
+        ],
+        credentials: true,
+    })
 );
 app.use(morgan(process.env.NODE_ENV === "production" ? "combined" : "dev"));
 
