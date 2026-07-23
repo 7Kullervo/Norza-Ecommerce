@@ -15,6 +15,12 @@ const connectDB = async () => {
     return cached.conn;
   }
 
+  console.log("ENV CHECK:");
+  console.log("MONGO_URI EXISTS:", !!process.env.MONGO_URI);
+  console.log("MONGO_URI VALUE:", process.env.MONGO_URI);
+
+cached.promise = mongoose.connect(process.env.MONGO_URI);
+
   if (!cached.promise) {
     cached.promise = mongoose.connect(process.env.MONGO_URI).then((conn) => {
       console.log(`MongoDB connected: ${conn.connection.host}`);
