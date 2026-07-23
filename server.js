@@ -25,15 +25,10 @@ const app = express();
 
 app.use(helmet());
 app.use(
-    cors({
-        origin: [
-            "https://steady-biscotti-98ed93.netlify.app",
-            "http://localhost:3000",
-            "http://localhost:5500"
-        ],
-        methods: ["GET", "POST", "PUT", "DELETE"],
-        credentials: true
-    })
+  cors({
+    origin: process.env.CLIENT_URL || "*",
+    credentials: true,
+  })
 );
 app.use(morgan(process.env.NODE_ENV === "production" ? "combined" : "dev"));
 
